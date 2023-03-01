@@ -1,0 +1,139 @@
+{
+  "name": "Retributive Strike",
+  "type": "feat",
+  "img": "systems/dnd5e/icons/spells/explosion-royal-3.jpg",
+  "data": {
+    "description": {
+      "value": "<p style=\"box-sizing:border-box;user-select:text;color:#191813;font-size:13px\">You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.</p>\n<p style=\"box-sizing:border-box;user-select:text;color:#191813;font-size:13px\">You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 × the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.</p>\n<table style=\"user-select:text;width:377px;color:#191813;font-size:13px\" border=\"1\">\n<tbody style=\"box-sizing:border-box;user-select:text\">\n<tr style=\"box-sizing:border-box;user-select:text\">\n<td style=\"box-sizing:border-box;user-select:text;width:128.5px\"><strong style=\"box-sizing:border-box;user-select:text\">Distance from Origin</strong></td>\n<td style=\"box-sizing:border-box;user-select:text;width:246.5px\"><strong style=\"box-sizing:border-box;user-select:text\">Damage</strong></td>\n</tr>\n<tr style=\"box-sizing:border-box;user-select:text\">\n<td style=\"box-sizing:border-box;user-select:text;width:128.5px\">10 ft. away or closer</td>\n<td style=\"box-sizing:border-box;user-select:text;width:246.5px\">8 x the number of charges in the staff</td>\n</tr>\n<tr style=\"box-sizing:border-box;user-select:text\">\n<td style=\"box-sizing:border-box;user-select:text;width:128.5px\">11 to 20 ft. away</td>\n<td style=\"box-sizing:border-box;user-select:text;width:246.5px\">6 x the number of charges in the staff</td>\n</tr>\n<tr style=\"box-sizing:border-box;user-select:text\">\n<td style=\"box-sizing:border-box;user-select:text;width:128.5px\">21 to 30 ft. away</td>\n<td style=\"box-sizing:border-box;user-select:text;width:246.5px\">4 x the number of charges in the staff</td>\n</tr>\n</tbody>\n</table>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": 30,
+      "width": null,
+      "units": "ft",
+      "type": "creature"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "spec"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "dex",
+    "actionType": "save",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": 17,
+      "scaling": "flat"
+    },
+    "requirements": "",
+    "recharge": {
+      "value": null,
+      "charged": false
+    },
+    "attributes": {
+      "spelldc": 10
+    }
+  },
+  "effects": [],
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.magicitems.magicitem-feats.nrV4PEgY98SCB7KC"
+    },
+    "rest-recovery": {
+      "data": {
+        "recovery": {
+          "enabled": false
+        }
+      }
+    },
+    "midi-qol": {
+      "effectActivation": false,
+      "onUseMacroName": "[postActiveEffects]ItemMacro"
+    },
+    "midiProperties": {
+      "nodam": false,
+      "fulldam": false,
+      "halfdam": true,
+      "rollOther": false,
+      "critOther": false,
+      "magicdam": false,
+      "magiceffect": false,
+      "concentration": false,
+      "toggleEffect": false
+    },
+    "enhanced-terrain-layer": {
+      "multiple": null,
+      "elevation": null,
+      "depth": null,
+      "environment": ""
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Retributive Strike",
+          "type": "script",
+          "author": "jM4h8qpyxwTpfNli",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "function wait(milliseconds) {\n  const date = Date.now();\n  let currentDate = null;\n  do {\n    currentDate = Date.now();\n  } while (currentDate - date < milliseconds);\n}\n\n// Preload sequencer\nawait Sequencer.Preloader.preloadForClients(\n  [\n    \"jb2a.misty_step.01.dark_red\",\n    \"jb2a.energy_strands.complete.purple.01\",\n    \"modules/jb2a_patreon/Library/3rd_Level/Fireball/FireballExplosion_01_Dark_Purple_800x800.webm\",\n    \"jb2a.ground_cracks.purple.02\",\n  ],\n  false\n);\n\n// get basic data on tokens\n\nconsole.log(\"args: \", args);\nconst lastArg = args[args.length - 1];\nconst actorD = game.actors.get(lastArg.actor._id);\nconst me = canvas.tokens.get(token.id);\nlet targets = lastArg.targets;\nconst itemD = await fromUuid(lastArg.itemUuid);\nlet damageMultiplier = 0;\nlet multiplier = 0;\nconsole.log(\"actorD:\", actorD);\nconsole.log(\"me:\", me);\n\n// Define the staff of power and get its remaining charges\nlet staffPower = actorD.items.getName(\"Staff of Power\");\nlet chargesLeft = staffPower.data.flags.magicitems.uses;\n\n// go Boom\nnew Sequence()\n  .effect()\n  .file(\"jb2a.misty_step.01.dark_red\")\n  .atLocation(token.center)\n  .waitUntilFinished(-800)\n\n  .sound()\n  .file(\n    \"moulinette/sounds/tabletop-audio/soundpads/Combat%20Future/plasma_explosion.ogg\"\n  )\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.energy_strands.complete.purple.01\")\n  .fadeIn(500)\n  .scale(3)\n  .scaleIn(0, 2500)\n  .duration(2500)\n  .rotateIn(360, 2500, { ease: \"easeOutCubic\" })\n  .waitUntilFinished(-2500)\n  .scaleOut(0, 100)\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.flames.blue.01\")\n  .fadeIn(500)\n  .duration(2500)\n  .waitUntilFinished(1000)\n  .scale(10)\n  .scaleIn(0, 2500)\n  .scaleOut(0, 100)\n\n  .sound()\n  .file(\n    \"s3/audio/soundboard/Fire%20and%20Explosions/blast%20debris/Explosion%20Blast%20Debris%20Fire%20Heavy%20Crackle%2001.ogg\"\n  )\n  .duration(10000)\n  .fadeOutAudio(1000)\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.fireball.explosion.dark_purple\")\n  .scale(3)\n  .timeRange(0, 750)\n  .waitUntilFinished(-1000)\n  .fadeOut(250)\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.fireball.loop_no_debris.dark_purple\")\n  .scale(3)\n  .fadeIn(500)\n  .duration(6000)\n  .fadeOut(500)\n  .waitUntilFinished(-1000)\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.fireball.explosion.dark_purple\")\n  .scale(3)\n  .startTime(1000)\n  .fadeIn(750)\n  .waitUntilFinished(-3000)\n\n  .effect()\n  .atLocation(token.center)\n  .file(\"jb2a.ground_cracks.purple.02\")\n  .fadeIn(250)\n  .duration(15000)\n  .fadeOut(5000)\n  .play();\n\n// deal damage to targets\nfor (let i = 0; i < targets.length; i++) {\n  let distance = MidiQOL.getDistance(me, targets[i], true);\n  let multiplier =\n    distance <= 10 ? 8 : distance <= 20 ? 6 : distance <= 30 ? 4 : false;\n  let damage = multiplier * chargesLeft;\n  if (multiplier) {\n    MidiQOL.applyTokenDamage(\n      [{ type: \"force\", damage: damage }],\n      damage,\n      new Set([targets[i]]),\n      null,\n      new Set(),\n      {}\n    );\n    ui.notifications.warn(\n      targets[i].name + \" takes \" + damage + \" points of force damage!\"\n    );\n  }\n}\n\n\n// set up 50-50 chance of survival\nlet randomNumber = Math.random();\nconsole.log(randomNumber);\nif (randomNumber >= 0.5) {\n  multiplier = 16;\n  let damage = multiplier * chargesLeft;\n  ui.notifications.warn(\n    me.data.name + \" takes \" + damage + \" points of force damage!\"\n  );\n  MidiQOL.applyTokenDamage(\n    [{ type: \"force\", damage: damage }],\n    damage,\n    new Set([me]),\n    null,\n    new Set(),\n    {}\n  );\n} else {\n  ui.notifications.warn(me.data.name + \" disappears!\");\n  me.document.delete();\n  new Sequence()\n    .effect()\n    .atLocation(token.center)\n    .file(\"jb2a.smoke.puff.centered.grey.0\")\n    .waitUntilFinished()\n\n    .effect()\n    .atLocation(token.center)\n    .file(\"jb2a.smoke.puff.centered.grey.1\")\n    .waitUntilFinished()\n\n    .effect()\n    .atLocation(token.center)\n    .file(\"jb2a.smoke.puff.centered.grey.2\")\n    .waitUntilFinished()\n    .play();\n  return;\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "exportSource": {
+      "world": "Rime-of-the-Frost-Maiden",
+      "system": "dnd5e",
+      "coreVersion": "9.269",
+      "systemVersion": "1.6.1"
+    }
+  }
+}
